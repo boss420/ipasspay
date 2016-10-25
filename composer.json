@@ -4,6 +4,7 @@
     "description": "Developer kit for udopay payment gateway and other endpoints...",
     "homepage": "https://github.com/boss420/udopay",
     "keywords": ["udopay"],
+    "minimum-stability": "stable",
     "require": {
         "php": ">=5.3.0"
     },

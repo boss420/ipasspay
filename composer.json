@@ -4,7 +4,6 @@
     "description": "Developer kit for udopay payment gateway and other endpoints...",
     "homepage": "https://github.com/boss420/udopay",
     "keywords": ["udopay"],
-    "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.0"
     },
@@ -18,9 +17,5 @@
         "name": "JanHao",
         "email": "popmyjoshion@gmail.com"
     }],
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0-dev"
-        }
-    }
+    "minimum-stability": "dev"
 }

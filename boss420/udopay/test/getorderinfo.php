@@ -4,14 +4,15 @@
  *@author Jan
  *@email  popmyjoshion@gmail.com
  */
-require_once "Directpaykit.class.php";
-$oop = new \Directpaykit(3, // your merchant_id
+header('Content-type: application/json');
+require_once "../src/Directpaykit.php";
+$oop = new \boss420\udopay\Directpaykit(3, // your merchant_id
 	1, //your site_id
-	"xxxxxx" //your api_key
+	"xxxx" //your api_key
 );
 $arr = array(
-	"oid" => "111",
+	"oid" => "",
+	"mh_oid" => "18",
 );
-$result = $oop->getOrderInfo($arr["oid"]);
-$arr_result = json_decode($result, true);
-var_dump($arr_result);
+$result = $oop->getOrderInfo($arr["oid"], $arr["mh_oid"]);
+echo $result;

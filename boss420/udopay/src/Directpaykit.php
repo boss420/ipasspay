@@ -2,7 +2,8 @@
 /**
  * 直连接口集成相关的封装类
  * @author JanHao
- * @email popmyjoshion@gmail.com
+ * @email 383542899@qq.com
+ * @web www.linglingtuan.com
  */
 namespace boss420\udopay;
 class Directpaykit {
@@ -112,14 +113,15 @@ class Directpaykit {
 	/**
 	 * 获得部分订单信息
 	 *@param $oid int 订单号，来自平台
+	 *@param $mh_oid 商户订单号
 	 *@return json 返回退款的JSON数据
 	 */
-	public function getOrderInfo($oid) {
-		$curlPost["hash_info"] = hash("sha256", $this->mid . $this->site_id . $oid . $this->api_key);
+	public function getOrderInfo($oid, $mh_oid = "") {
+		$curlPost["hash_info"] = hash("sha256", $this->mid . $this->site_id . $oid . $mh_oid . $this->api_key);
 		$curlPost["mid"] = $this->mid;
 		$curlPost["site_id"] = $this->site_id;
 		$curlPost["oid"] = $oid;
-
+		$curlPost["mh_oid"] = $mh_oid;
 		$process_gateway = $this->domain . "/index.php/Openapi/Orders/getInfo";
 		$response = $this->curlSend($process_gateway, $curlPost, 0);
 		return $response;

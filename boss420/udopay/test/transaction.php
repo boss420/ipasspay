@@ -4,8 +4,9 @@
  *@author Jan
  *@email  popmyjoshion@gmail.com
  */
-require_once "Directpaykit.class.php";
-$oop = new \Directpaykit(3, // your merchant_id
+header('Content-type: application/json');
+require_once "../src/Directpaykit.php";
+$oop = new \boss420\udopay\Directpaykit(3, // your merchant_id
 	1, //your site_id
 	"xxxxx" //your api_key
 );
@@ -44,5 +45,4 @@ $rebill_arr = array(
 $oop->setRebill($rebill_arr);
 
 $result = $oop->sendGateway($arr);
-$arr_result = json_decode($result, true);
-var_dump($arr_result);
+echo $result;

@@ -15,11 +15,11 @@ class Directpaykit {
 	/**
 	 * 构造函数，输入三个关键参数
 	 */
-	public function __construct($mid, $site_id, $api_key, $domain = "") {
+	public function __construct($mid, $site_id, $api_key, $domain = "https://www.udopay.com") {
 		$this->mid = $mid;
 		$this->site_id = $site_id;
 		$this->api_key = $api_key;
-		$this->domain = "https://www.udopay.com";
+		$this->domain = $domain;
 
 	}
 

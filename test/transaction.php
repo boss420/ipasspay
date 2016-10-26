@@ -31,6 +31,7 @@ $arr = array(
 	"bill_zip" => "21300",
 	"bill_firstname" => "test",
 	"bill_lastname" => "test",
+	"uuid" => "550E8400-E29B-11D4-A716-446655440000", //uuid
 
 	"syn_url" => "https://www.google.com", //synchronous notification URL(no use in direct API,just ignore it.)
 	"asyn_url" => "https://www.google.com", //asynchronous notificaiton URL(should be a real URL that we can access from the internet)

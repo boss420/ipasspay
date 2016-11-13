@@ -6,7 +6,7 @@
  */
 header('Content-type: application/json');
 require_once "../src/Directpaykit.php";
-$oop = new \boss420\udopay\Directpaykit(3, // your merchant_id
+$oop = new \boss420\ipasspay\Directpaykit(3, // your merchant_id
 	1, //your site_id
 	"xxxx" //your api_key
 );

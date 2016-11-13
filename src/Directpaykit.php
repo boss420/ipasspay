@@ -2,24 +2,23 @@
 /**
  * 直连接口集成相关的封装类
  * @author JanHao
- * @email 383542899@qq.com
- * @web www.linglingtuan.com
+ * @email popmyjoshion@gmail.com
+ * @web www.ipasspay.com
  */
-namespace boss420\udopay;
+namespace boss420\ipasspay;
 class Directpaykit {
 	private $mid; //商户ID
 	private $site_id; //网站ID
 	private $api_key; //网站密钥
 	private $rebill_arr = array(); //周期交易提交的数组
-	private $domain; //网站域名
+	private $domain = "https://www.ipasspay.biz"; //网站域名
 	/**
 	 * 构造函数，输入三个关键参数
 	 */
-	public function __construct($mid, $site_id, $api_key, $domain = "https://www.udopay.com") {
+	public function __construct($mid, $site_id, $api_key) {
 		$this->mid = $mid;
 		$this->site_id = $site_id;
 		$this->api_key = $api_key;
-		$this->domain = $domain;
 
 	}
 
@@ -52,27 +51,6 @@ class Directpaykit {
 		$new_array = array_merge($curlPost, $post_arr, $this->rebill_arr);
 		//dump($new_array);exit;
 		$response = $this->curlSend($process_gateway, $new_array);
-		return $response;
-	}
-
-	/**
-	 * 提交数据到rebill网关
-	 * @param $pid int 平台订单号
-	 * @param $oid string 商户订单号
-	 * @param $order_amount decimal(12,2) 订单金额
-	 * @param $order_currency char(3) 订单货币
-	 * @return json 返回周期交易的JSON数据
-	 */
-	public function sendRebill($pid, $oid, $order_amount, $order_currency) {
-		//echo $pid . $oid . $order_amount . $order_currency . $this->api_key;
-		$curlPost["hash_info"] = hash("sha256", $pid . $oid . $order_amount . $order_currency . $this->api_key);
-		$curlPost["pid"] = $pid;
-		$curlPost["oid"] = $oid;
-		$curlPost["order_amount"] = $order_amount;
-		$curlPost["order_currency"] = $order_currency;
-		$process_gateway = $this->domain . "/index.php/Gateway/rebilling";
-
-		$response = $this->curlSend($process_gateway, $curlPost, 0);
 		return $response;
 	}
 

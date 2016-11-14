@@ -1,3 +1,3 @@
-# udopay
+# iPasspay
 Developer kit for ipasspay payment gateway and other endpoints...
 ***
